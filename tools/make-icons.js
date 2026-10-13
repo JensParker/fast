@@ -1,4 +1,4 @@
-// Generates the app icons (dark square, orange "FAST" in a 5x7 pixel font).
+// Generates the app icons (dark square, blue "FAST" in a 5x7 pixel font).
 // Run: node tools/make-icons.js
 const fs = require('fs');
 const path = require('path');
@@ -11,7 +11,7 @@ const GLYPHS = {
   T: ['11111', '00100', '00100', '00100', '00100', '00100', '00100']
 };
 const BG = [0x1c, 0x1b, 0x1a];
-const FG = [0xd9, 0x77, 0x57];
+const FG = [0x5b, 0x8d, 0xef];
 
 function chunk(type, data) {
   const len = Buffer.alloc(4);

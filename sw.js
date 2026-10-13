@@ -1,6 +1,6 @@
 // Offline shell for FAST. Serves from cache first and refreshes the cache in
 // the background, so an update shows up the second time the app is opened.
-const CACHE = 'fast-v1';
+const CACHE = 'fast-v2';
 const SHELL = [
   './', 'index.html', 'style.css', 'content.js', 'core.js', 'app.js',
   'manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png'
