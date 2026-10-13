@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>FAST preview seed</title>
+<!-- Local testing only: seeds a state and opens the app.
+     ?s=running&h=18.7 | ?s=idle | ?s=complete | ?s=empty -->
+<script>
+  const q = new URLSearchParams(location.search);
+  const H = 3600e3, D = 24 * H, now = Date.now();
+  const done = (daysAgo) => { const start = now - daysAgo * D - 36 * H; return { id: 'F' + start.toString(36), start, end: start + 36 * H }; };
+  const log = [done(6), done(13), { id: 'Fx', start: now - 20 * D, end: now - 20 * D + 21.66 * H }, done(27)];
+  const s = { active: null, log, ack: null, sync: { url: '', key: '', last: 0, error: '' }, queue: [] };
+  const mode = q.get('s') || 'running';
+  if (mode === 'running') s.active = { id: 'Fr', start: now - Number(q.get('h') || 18.7) * H, end: null };
+  if (mode === 'complete') s.active = { id: 'Fc', start: now - 36.01 * H, end: null };
+  if (mode === 'empty') s.log = [];
+  localStorage.setItem('fast.v1', JSON.stringify(s));
+  location.replace('../index.html');
+</script>
